@@ -61,6 +61,21 @@ geektime-dl [OPTIONS] command
   help, h  帮助
 ```
 
+### 登录
+
+通过账号密码登录：
+
+```console
+$ geektime-dl login --phone xxxxxx --password xxxxxx
+极客时间账号登录成功： XXX
+```
+
+通过Cookie登录：
+
+```console
+$ geektime-dl login --gcid xxxxxx --gcess xxxxxx --serverId 'xxxxxxx'
+极客时间账号登录成功： XXX
+```
 
 ### 视频和专栏的下载
 
@@ -146,21 +161,6 @@ $ geektime-dl video
 
 存在 `.download` 临时文件，使用相同的参数执行 `geektime-dl` 命令，则下载进度将从上一个会话恢复。
 
-### 登录
-
-通过账号密码登录：
-
-```console
-$ geektime-dl login --phone xxxxxx --password xxxxxx
-极客时间账号登录成功： XXX
-```
-
-通过Cookie登录：
-
-```console
-$ geektime-dl login --gcid xxxxxx --gcess xxxxxx --serverId 'xxxxxxx'
-极客时间账号登录成功： XXX
-```
 
 ## 参考仓库
 
