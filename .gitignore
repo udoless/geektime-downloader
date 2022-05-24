@@ -357,3 +357,4 @@ downloads/
 .DS_Store
 log.log
 .idea
+.goreleaser.yml
