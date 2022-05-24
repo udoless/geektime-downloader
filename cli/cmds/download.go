@@ -249,6 +249,9 @@ func extractVideoDownloadData(articles []*service.Article, aid int) []downloader
 								})
 							}
 							datum.Streams[key] = stream
+						} else {
+							fmt.Println("M3u8URLsAndAesKey error")
+							panic(err)
 						}
 					}
 
