@@ -1,6 +1,11 @@
 package service
 
-import "github.com/udoless/geektime-downloader/utils"
+import (
+	"bytes"
+	"fmt"
+	"github.com/udoless/geektime-downloader/utils"
+	"io/ioutil"
+)
 
 //Columns 获取专栏
 func (s *Service) Columns() ([]*Course, error) {
@@ -134,7 +139,9 @@ func (s *Service) V3ArticleInfo(aid int) (*V3ArticleInfo, error) {
 	defer body.Close()
 
 	v3ArticleInfo := &V3ArticleInfo{}
-	if err := utils.UnmarshalReader(body, &v3ArticleInfo); err != nil {
+	b, _ := ioutil.ReadAll(body)
+	fmt.Println(string(b))
+	if err := utils.UnmarshalReader(bytes.NewReader(b), &v3ArticleInfo); err != nil {
 		return nil, err
 	}
 
