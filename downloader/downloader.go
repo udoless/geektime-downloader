@@ -1,6 +1,7 @@
 package downloader
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
@@ -44,6 +45,10 @@ func Download(v Datum, stream string, path string) error {
 	title = replacer.Replace(title)
 
 	if stream == "" {
+		if len(v.sortedStreams) == 0 {
+			vStr, _ := json.Marshal(v)
+			panic("文章解析异常：" + string(vStr))
+		}
 		stream = v.sortedStreams[0].name
 	}
 	data, ok := v.Streams[strings.ToLower(stream)]

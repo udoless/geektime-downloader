@@ -3,7 +3,7 @@ env:
   - GO111MODULE=on
 builds:
 - env:
-    - CGO_ENABLED=0
+    - CGO_ENABLED=1
   binary: geektime-dl
   goos:
     - windows
