@@ -229,7 +229,10 @@ func extractVideoDownloadData(articles []*service.Article, aid int) []downloader
 					wgp.Done()
 				}()
 				if datum.IsCanDL {
-					v3ArticleInfo, _ := application.V3ArticleInfo(datum.ID)
+					v3ArticleInfo, err := application.V3ArticleInfo(datum.ID)
+					if err != nil {
+						panic(err)
+					}
 					for _, info := range v3ArticleInfo.Data.Info.Video.HlsMedias {
 						if info.Quality != "hd" {
 							continue
